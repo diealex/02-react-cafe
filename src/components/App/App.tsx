@@ -4,11 +4,11 @@ import VoteOptions from '../VoteOptions/VoteOptions.tsx'
 import VoteStats from '../VoteStats/VoteStats.tsx'
 import Notification from '../Notification/Notification.tsx'
 import { useState } from 'react';
-import type { VoteType } from '../../types/votes.ts';
+import type { Votes, VoteType } from '../../types/votes.ts';
 
 export default function App() {
 
-  const [votes, setVotes] = useState({good:0, neutral: 0, bad:0});
+  const [votes, setVotes] = useState<Votes>({good:0, neutral: 0, bad:0});
 
   function handleVote(type: VoteType) {
     setVotes((prev) => ({
