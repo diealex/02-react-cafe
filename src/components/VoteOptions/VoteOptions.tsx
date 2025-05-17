@@ -12,27 +12,24 @@ export default function VoteOptions({
   onReset,
   canReset,
 }: VoteOptionsProps) {
+  const handleClick = (type: VoteType) => () => onVote(type);
   return (
     <div className={css.container}>
       <button
         className={css.button}
         type="button"
-        onClick={() => onVote("good")}
+        onClick={handleClick("good")}
       >
         Good
       </button>
       <button
         className={css.button}
         type="button"
-        onClick={() => onVote("neutral")}
+        onClick={handleClick("neutral")}
       >
         Neutral
       </button>
-      <button
-        className={css.button}
-        type="button"
-        onClick={() => onVote("bad")}
-      >
+      <button className={css.button} type="button" onClick={handleClick("bad")}>
         Bad
       </button>
       {canReset && (
